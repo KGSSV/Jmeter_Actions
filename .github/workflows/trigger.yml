@@ -17,13 +17,14 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
+          distribution: 'adopt'
 
       - name: Download JMeter
         run: |
-          wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.1.tgz
-          tar -xzf apache-jmeter-5.6.1.tgz
+          wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.1.tgz
+          tar -xzf apache-jmeter-5.4.1.tgz
 
       - name: Run JMeter tests
         run: ./apache-jmeter-5.4.1/bin/jmeter -n -t Testing/test.jmx -l testresults.csv
 
-      
+      # Add more steps here to handle test results or other actions as needed.
