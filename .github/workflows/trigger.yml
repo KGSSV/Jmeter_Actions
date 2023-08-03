@@ -27,4 +27,8 @@ jobs:
       - name: Run JMeter tests
         run: ./apache-jmeter-5.4.1/bin/jmeter -n -t Testing/test.jmx -l testresults.csv
 
-      # Add more steps here to handle test results or other actions as needed.
+      - name: Upload JMeter Test Result
+        uses: actions/upload-artifact@v2
+        with:
+          name: jmeter-test-results
+          path: testresults.csv
